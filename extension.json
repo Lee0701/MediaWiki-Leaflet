@@ -1,0 +1,67 @@
+{
+    "name": "Leaflet",
+    "author": "Lee0701",
+    "description": "Show leaflet map as special page",
+    "version": "0.0.1",
+    "type": "specialpage",  
+    "AutoloadNamespaces": {
+        "MediaWiki\\Extension\\Leaflet\\": "includes/"
+    },
+    "SpecialPages": {
+        "Map": "MediaWiki\\Extension\\Leaflet\\SpecialMap"
+    },
+    "Hooks": {
+        "ResourceLoaderGetConfigVars": "main"
+    },
+    "HookHandlers": {
+        "main": {
+            "class": "MediaWiki\\Extension\\Leaflet\\HookHandler"
+        }
+    },
+    "ResourceModules": {
+        "ext.Leaflet.map": {
+            "styles": [
+                "Leaflet.css",
+                "ext.Leaflet.map.css"
+            ],
+            "scripts": [
+                "Leaflet.js",
+                "ext.Leaflet.map.js"
+            ]
+        }
+    },
+    "ResourceFileModulePaths": {
+        "localBasePath": "resources",
+        "remoteExtPath": "Leaflet"
+    },
+    "MessagesDirs": {
+        "Leaflet": [
+            "i18n"
+        ]
+    },
+    "config": {
+        "LeafletTileUrl": {
+            "value": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            "public": true
+        },
+        "LeafletAttribution": {
+            "value": "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors"
+        },
+        "LeafletViewLat": {
+            "value": 0
+        },
+        "LeafletViewLng": {
+            "value": 0
+        },
+        "LeafletViewZoom": {
+            "value": 0
+        },
+        "LeafletMarkerCategory": {
+            "value": "[[Category:MapMarker]]"
+        }
+    },
+	"ConfigRegistry": {
+		"Leaflet": "GlobalVarConfig::newInstance"
+	},
+    "manifest_version": 2
+}
