@@ -65,20 +65,21 @@ mw.loader.using( [ 'mediawiki.util' ] ).done(function() {
     function addMarkers(group, promise) {
         promise.then(function(markers) {
             group.clearLayers();
-            for(var marker of markers) {
+            markers.forEach(function(marker) {
                 L.marker([marker.lat, marker.lng], {icon: L.icon({
                     iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/678111-map-marker-512.png',
                     iconSize: [32, 32],
                     iconAnchor: [15, 31],
                     popupAnchor: [0, -31],
                     tooltipAnchor: [16, -16],
-                })}).addTo(group)
+                })})
+                        .addTo(group)
                         .bindTooltip(marker.name, {permanent: true})
                         .openTooltip()
                         .on('click', function() {
                             location.href = marker.url;
                         });
-            }
+            })
         })
     }
 
