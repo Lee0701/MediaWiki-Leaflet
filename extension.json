@@ -39,6 +39,9 @@
             "i18n"
         ]
     },
+	"ExtensionMessagesFiles": {
+		"LeafletAlias": "Leaflet.i18n.alias.php"
+	},
     "config": {
         "LeafletTileUrl": {
             "value": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
