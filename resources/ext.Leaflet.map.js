@@ -29,11 +29,12 @@ mw.loader.using( [ 'mediawiki.util' ] ).done(function() {
                 var results = JSON.parse(response).query.results;
                 for(var key of Object.keys(results)) {
                     try {
+                        var name = (results[key].printouts.Name || [])[0] || key;
+                        var icon = mw.config.get('wgLeaflet').markerIcon;
                         var url = results[key].fullurl;
                         var lat = results[key].printouts.Lat[0];
                         var lng = results[key].printouts.Lng[0];
-                        var name = (results[key].printouts.Name || [])[0] || key;
-                        markers.push({name: name, url: url, lat: lat, lng: lng});
+                        markers.push({name: name, icon: icon, url: url, lat: lat, lng: lng});
                     } catch(e) {}
                 }
                 resolve(markers);
@@ -67,7 +68,7 @@ mw.loader.using( [ 'mediawiki.util' ] ).done(function() {
             group.clearLayers();
             markers.forEach(function(marker) {
                 L.marker([marker.lat, marker.lng], {icon: L.icon({
-                    iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/678111-map-marker-512.png',
+                    iconUrl: marker.icon,
                     iconSize: [32, 32],
                     iconAnchor: [15, 31],
                     popupAnchor: [0, -31],
