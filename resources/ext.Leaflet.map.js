@@ -102,7 +102,9 @@ mw.loader.using( [ 'mediawiki.util' ] ).done(function() {
     function adjustHeight() {
         var parent = document.querySelector(mw.config.get('wgLeaflet').addToElement);
         var map = document.querySelector('#map');
-        map.style.height = (window.innerHeight - parent.getBoundingClientRect().bottom) + 'px';
+        delete map.style.height;
+        var rect = parent.getBoundingClientRect();
+        map.style.height = (window.innerHeight - rect.top) + 'px';
     }
 
     function onContent() {

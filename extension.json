@@ -44,10 +44,10 @@
 	},
     "config": {
         "LeafletRemoveElements": {
-            "value": "#mw-content-container, #mw-footer-container"
+            "value": "#mw-content-container > *, #mw-footer-container"
         },
         "LeafletAddToElement": {
-            "value": "#mw-wrapper"
+            "value": "#mw-content-container"
         },
         "LeafletTileUrl": {
             "value": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
