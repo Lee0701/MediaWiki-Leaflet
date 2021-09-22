@@ -55,8 +55,10 @@ mw.loader.using( [ 'mediawiki.util' ] ).done(function() {
             addMarkers(markers, getMarkers(bounds.getSouth(), bounds.getWest(), bounds.getNorth(), bounds.getEast(), map.getZoom()));
         }
 
-        map.on('moveend', addVisibleMarkers);
-        addVisibleMarkers()
+        if(mw.config.get('wgLeaflet').useMarkers) {
+            map.on('moveend', addVisibleMarkers);
+            addVisibleMarkers();
+        }
 
         map.on('contextmenu', function(e) {
             alert(e.latlng.lat + " " + e.latlng.lng + " " + map.getZoom());

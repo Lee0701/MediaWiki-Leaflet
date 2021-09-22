@@ -15,6 +15,7 @@
                 'viewLat' => $config->get('LeafletViewLat'),
                 'viewLng' => $config->get('LeafletViewLng'),
                 'viewZoom' => $config->get('LeafletViewZoom'),
+                'useMarkers' => $config->get('LeafletUseMarkers'),
                 'markerCategory' => $config->get('LeafletMarkerCategory'),
                 'markerIcon' => $config->get('LeafletMarkerIcon'),
             ];

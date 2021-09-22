@@ -65,6 +65,9 @@
         "LeafletViewZoom": {
             "value": 0
         },
+        "LeafletUseMarkers": {
+            "value": false
+        },
         "LeafletMarkerCategory": {
             "value": "[[Category:MapMarker]]"
         },
