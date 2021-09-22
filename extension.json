@@ -43,6 +43,12 @@
 		"LeafletAlias": "Leaflet.i18n.alias.php"
 	},
     "config": {
+        "LeafletRemoveElements": {
+            "value": "#mw-content-container, #mw-footer-container"
+        },
+        "LeafletAddToElement": {
+            "value": "#mw-wrapper"
+        },
         "LeafletTileUrl": {
             "value": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             "public": true

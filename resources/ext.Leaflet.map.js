@@ -85,19 +85,22 @@ mw.loader.using( [ 'mediawiki.util' ] ).done(function() {
     }
 
     function loadMap() {
-        var contentWrapper = document.querySelector('.content-wrapper');
-        contentWrapper.innerHTML = '';
+        var removeElements = document.querySelectorAll(mw.config.get('wgLeaflet').removeElements)
+        removeElements.forEach(function(element) {
+            element.parentNode.removeChild(element);
+        })
+        var addToElement = document.querySelector(mw.config.get('wgLeaflet').addToElement);
         var map = document.createElement('div');
         map.id = 'map';
-        contentWrapper.parentNode.appendChild(map);
+        addToElement.appendChild(map);
         adjustHeight();
         createMap(map);
     }
 
     function adjustHeight() {
-        var contentWrapper = document.querySelector('.content-wrapper');
+        var parent = document.querySelector(mw.config.get('wgLeaflet').addToElement);
         var map = document.querySelector('#map');
-        map.style.height = (window.innerHeight - contentWrapper.getBoundingClientRect().bottom) + 'px';
+        map.style.height = (window.innerHeight - parent.getBoundingClientRect().bottom) + 'px';
     }
 
     function onContent() {

@@ -8,6 +8,8 @@
 
         public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ): void {
             $vars['wgLeaflet'] = [
+                'removeElements' => $config->get('LeafletRemoveElements'),
+                'addToElement' => $config->get('LeafletAddToElement'),
                 'tileUrl' => $config->get('LeafletTileUrl'),
                 'attribution' => $config->get('LeafletAttribution'),
                 'viewLat' => $config->get('LeafletViewLat'),
